@@ -14,6 +14,15 @@ clearml_local_config.txt
 # Environment variables
 .env
 .env.local
+.env.prod
+.env.dev
+
+# Data files - keep data out of version control
+src/data/raw/
+src/data/interim/
+src/data/processed/*.csv
+src/data/processed/*.json
+src/data/processed/*.parquet
 
 # C extensions
 *.so
