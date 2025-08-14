@@ -10,18 +10,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# Uncomment the following lines after installing clearml package and configuring credentials
-# from clearml import Task
+# ClearML package for experiment tracking
+from clearml import Task
 
 def run_ml_experiment():
     """Run a simple ML experiment with ClearML tracking"""
     
-    # Initialize ClearML Task (uncomment after setup)
-    # task = Task.init(
-    #     project_name="MLOps Pipeline Demo",
-    #     task_name="Random Forest Classification",
-    #     tags=["sklearn", "classification", "demo"]
-    # )
+    # Initialize ClearML Task
+    task = Task.init(
+        project_name="MLOps Pipeline Demo",
+        task_name="Random Forest Classification",
+        tags=["sklearn", "classification", "demo"]
+    )
     
     # Hyperparameters
     config = {
@@ -35,8 +35,8 @@ def run_ml_experiment():
         'max_depth': 10
     }
     
-    # Log hyperparameters (uncomment after setup)
-    # task.connect(config)
+    # Log hyperparameters
+    task.connect(config)
     
     print("🔬 Generating synthetic dataset...")
     # Generate synthetic dataset
@@ -73,8 +73,8 @@ def run_ml_experiment():
     
     print(f"🎯 Test Accuracy: {accuracy:.4f}")
     
-    # Log metrics (uncomment after setup)
-    # task.get_logger().report_scalar("Performance", "Accuracy", accuracy, iteration=0)
+    # Log metrics
+    task.get_logger().report_scalar("Performance", "Accuracy", accuracy, iteration=0)
     
     # Create and log a simple plot
     feature_importance = model.feature_importances_
@@ -86,8 +86,8 @@ def run_ml_experiment():
     plt.ylabel('Importance')
     plt.tight_layout()
     
-    # Log plot (uncomment after setup)
-    # task.get_logger().report_matplotlib_figure("Feature Importance", "importance", plt.gcf())
+    # Log plot
+    task.get_logger().report_matplotlib_figure("Feature Importance", "importance", plt.gcf())
     
     plt.savefig('feature_importance.png')
     plt.show()

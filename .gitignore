@@ -9,6 +9,7 @@ clearml-server/
 *.jpg
 *.jpeg
 .clearml/
+clearml_local_config.txt
 
 # Environment variables
 .env
