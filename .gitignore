@@ -3,6 +3,17 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# ClearML specific
+clearml-server/
+*.png
+*.jpg
+*.jpeg
+.clearml/
+
+# Environment variables
+.env
+.env.local
+
 # C extensions
 *.so
 
