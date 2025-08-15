@@ -17,6 +17,7 @@ clearml_local_config.txt
 .env.prod
 .env.dev
 
+
 # Data files - keep data out of version control
 src/data/raw/
 src/data/interim/
@@ -226,3 +227,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+clearml.conf

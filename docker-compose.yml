@@ -53,6 +53,7 @@ services:
       node.name: clearml
       reindex.remote.whitelist: "'*.*'"
       xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms256m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
@@ -61,6 +62,8 @@ services:
         soft: 65536
         hard: 65536
     image: elasticsearch:8.17.0
+    ports:
+      - "9200:9200"
     restart: unless-stopped
     volumes:
       - /opt/clearml/data/elastic_7:/usr/share/elasticsearch/data
